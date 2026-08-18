@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+    <div class="container">
+        <h1>Cadastro de Usuários</h1>
+        <p class="subtitulo">Gerenciamento de registros — CRUD completo</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ===================== FORMULÁRIO ===================== -->
+    <section class="cartao">
+        <h2 id="tituloFormulario">Novo usuário</h2>
+
+        <form id="formularioUsuario" novalidate>
+            <!-- Campo oculto: guarda o ID quando o formulário está em modo de edição -->
+            <input type="hidden" id="usuarioId">
+
+            <div class="grade-formulario">
+                <div class="campo">
+                    <label for="nome">Nome <span class="obrigatorio">*</span></label>
+                    <input type="text" id="nome" maxlength="50" placeholder="Nome completo">
+                    <span class="erro" id="erroNome"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="cpf">CPF <span class="obrigatorio">*</span></label>
+                    <input type="text" id="cpf" maxlength="11" placeholder="Somente números">
+                    <span class="erro" id="erroCpf"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail <span class="obrigatorio">*</span></label>
+                    <input type="email" id="email" maxlength="80" placeholder="exemplo@email.com">
+                    <span class="erro" id="erroEmail"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone <span class="obrigatorio">*</span></label>
+                    <input type="text" id="telefone" maxlength="16" placeholder="(79) 99999-9999">
+                    <span class="erro" id="erroTelefone"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="dataNascimento">Data de nascimento <span class="obrigatorio">*</span></label>
+                    <input type="date" id="dataNascimento">
+                    <span class="erro" id="erroDataNascimento"></span>
+                </div>
+            </div>
+
+            <div class="acoes-formulario">
+                <button type="submit" class="botao botao-primario" id="botaoSalvar">Salvar</button>
+                <button type="button" class="botao botao-secundario" id="botaoCancelar" hidden>Cancelar edição</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- ===================== LISTAGEM ===================== -->
+    <section class="cartao">
+        <h2>Usuários cadastrados</h2>
+
+        <div id="areaMensagemLista"></div>
+
+        <div class="tabela-rolagem">
+            <table class="tabela">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Nascimento</th>
+                    <th>Cadastro</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody id="corpoTabela"></tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<!-- ===================== MODAL DE CONFIRMAÇÃO DE EXCLUSÃO ===================== -->
+<div class="fundo-modal" id="modalConfirmacao" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+        <h3 id="tituloModal">Excluir usuário</h3>
+        <p id="textoModal">Esta ação não pode ser desfeita.</p>
+        <div class="acoes-modal">
+            <button type="button" class="botao botao-secundario" id="botaoCancelarExclusao">Cancelar</button>
+            <button type="button" class="botao botao-perigo" id="botaoConfirmarExclusao">Excluir</button>
+        </div>
+    </div>
+</div>
+
+<!-- Área de avisos (sucesso / erro) exibida no canto da tela -->
+<div id="areaAviso" class="area-aviso"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

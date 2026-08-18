@@ -1,0 +1,56 @@
+### 1 - Cadastrar (espera 201)
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Kaua Lisboa",
+  "cpf": "12345678901",
+  "email": "kaua@teste.com",
+  "telefone": "(79) 99999-9999",
+  "dataNascimento": "2003-05-15"
+}
+
+### 2 - Listar todos (espera 200)
+GET http://localhost:8080/api/usuarios
+
+### 3 - Buscar por ID (espera 200)
+GET http://localhost:8080/api/usuarios/1
+
+### 4 - ID inexistente (espera 404)
+GET http://localhost:8080/api/usuarios/999
+
+### 5 - CPF duplicado (espera 409)
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Outro Nome",
+  "cpf": "12345678901",
+  "email": "outro@teste.com",
+  "telefone": "(79) 88888-8888",
+  "dataNascimento": "2000-01-01"
+}
+
+### 6 - Campos inválidos (espera 400)
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "",
+  "cpf": "123",
+  "email": "email-invalido",
+  "telefone": "",
+  "dataNascimento": "2030-01-01"
+}
+
+### 7 - Atualizar (espera 200)
+PUT http://localhost:8080/api/usuarios/1
+Content-Type: application/json
+
+{
+  "nome": "Kaua Lisboa Emerencio",
+  "cpf": "12345678901",
+  "email": "kaua.novo@teste.com",
+  "telefone": "(79) 97777-7777",
+  "dataNascimento": "2003-05-15"
+}

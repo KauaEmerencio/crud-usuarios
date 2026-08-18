@@ -1,0 +1,319 @@
+/* ===================================================================
+   Estilos da aplicação de Cadastro de Usuários
+   =================================================================== */
+
+:root {
+    --cor-fundo: #f4f5f7;
+    --cor-superficie: #ffffff;
+    --cor-borda: #d8dce3;
+    --cor-texto: #1f2933;
+    --cor-texto-suave: #616e7c;
+    --cor-primaria: #1f4e79;
+    --cor-primaria-escura: #163a5a;
+    --cor-perigo: #b42318;
+    --cor-perigo-escura: #8f1d13;
+    --cor-sucesso: #0f7b47;
+    --raio: 6px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.5;
+    padding-bottom: 48px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    padding: 28px 0;
+    margin-bottom: 28px;
+}
+
+.cabecalho h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.subtitulo {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+/* ---------- Cartões ---------- */
+.cartao {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.cartao h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* ---------- Formulário ---------- */
+.grade-formulario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--cor-texto-suave);
+}
+
+.obrigatorio {
+    color: var(--cor-perigo);
+}
+
+.campo input {
+    padding: 9px 11px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    font-size: 0.95rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: var(--cor-texto);
+}
+
+.campo input:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 1px;
+    border-color: var(--cor-primaria);
+}
+
+.campo input.invalido {
+    border-color: var(--cor-perigo);
+}
+
+.erro {
+    font-size: 0.78rem;
+    color: var(--cor-perigo);
+    min-height: 16px;
+    margin-top: 4px;
+}
+
+.acoes-formulario {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+    padding: 9px 18px;
+    border: 1px solid transparent;
+    border-radius: var(--raio);
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.botao:focus-visible {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+.botao-primario {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+.botao-primario:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+.botao-secundario {
+    background-color: #ffffff;
+    color: var(--cor-texto);
+    border-color: var(--cor-borda);
+}
+
+.botao-secundario:hover {
+    background-color: #eef0f3;
+}
+
+.botao-perigo {
+    background-color: var(--cor-perigo);
+    color: #ffffff;
+}
+
+.botao-perigo:hover {
+    background-color: var(--cor-perigo-escura);
+}
+
+.botao-tabela {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    margin-right: 6px;
+}
+
+/* ---------- Tabela ---------- */
+.tabela-rolagem {
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tabela th,
+.tabela td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--cor-borda);
+    white-space: nowrap;
+}
+
+.tabela th {
+    background-color: #eef0f3;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--cor-texto-suave);
+}
+
+.tabela tbody tr:hover {
+    background-color: #f8f9fb;
+}
+
+.linha-vazia td {
+    text-align: center;
+    color: var(--cor-texto-suave);
+    padding: 28px 12px;
+    white-space: normal;
+}
+
+/* ---------- Modal de confirmação ---------- */
+.fundo-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(31, 41, 51, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 50;
+}
+
+.fundo-modal[hidden] {
+    display: none;
+}
+
+.modal {
+    background-color: var(--cor-superficie);
+    border-radius: var(--raio);
+    padding: 24px;
+    max-width: 420px;
+    width: 100%;
+}
+
+.modal h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    font-size: 0.92rem;
+    color: var(--cor-texto-suave);
+    margin-bottom: 20px;
+}
+
+.acoes-modal {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* ---------- Avisos ---------- */
+.area-aviso {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 60;
+}
+
+.aviso {
+    padding: 12px 18px;
+    border-radius: var(--raio);
+    color: #ffffff;
+    font-size: 0.9rem;
+    max-width: 340px;
+}
+
+.aviso-sucesso {
+    background-color: var(--cor-sucesso);
+}
+
+.aviso-erro {
+    background-color: var(--cor-perigo);
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 640px) {
+    .cabecalho h1 {
+        font-size: 1.3rem;
+    }
+
+    .cartao {
+        padding: 18px;
+    }
+
+    .acoes-formulario .botao {
+        width: 100%;
+    }
+
+    .area-aviso {
+        left: 20px;
+        right: 20px;
+    }
+
+    .aviso {
+        max-width: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
